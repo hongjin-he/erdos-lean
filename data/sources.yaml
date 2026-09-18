@@ -173,7 +173,7 @@
       covers: barrier half (a_n^{1/2^n} -> 1, limsup sub-question)
   arxiv: https://arxiv.org/abs/2406.17593
   journal: Acta Math. Hungar. 175 (2025), 572-608, doi:10.1007/s10474-025-01528-0
-  first_complete_commit: TBD  # fill in the 40-character SHA after the push
+  first_complete_commit: 3593a57e823349d3e607ed3f3ab12542671d03f4
   url:
-    - https://github.com/hongjin-he/erdos-lean/blob/TBD/ErdosLean/Erdos265/Main.lean
+    - https://github.com/hongjin-he/erdos-lean/blob/3593a57e823349d3e607ed3f3ab12542671d03f4/ErdosLean/Erdos265/Main.lean
   version: "4.35.0-rc2"

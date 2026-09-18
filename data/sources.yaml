@@ -195,8 +195,8 @@
       github: hongjin-he
       AI: Claude (Anthropic)
   arxiv: https://arxiv.org/abs/2604.18535
-  first_complete_commit: <40-char SHA to be filled after push>
+  first_complete_commit: e2148c5ed966b85ea0445a7e6b81b3b8d05fe15c
   url:
-    - https://github.com/hongjin-he/erdos-lean/blob/<SHA>/ErdosLean/Erdos995/Main.lean
+    - https://github.com/hongjin-he/erdos-lean/blob/e2148c5ed966b85ea0445a7e6b81b3b8d05fe15c/ErdosLean/Erdos995/Main.lean
     - https://www.erdosproblems.com/forum/thread/995
   version: "4.35.0-rc2"

@@ -9,8 +9,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: leanprover/lean-action@v1
-      - name: Print axioms of the main theorem
+      - name: Print axioms of the main theorems
         run: |
-          printf 'import ErdosLean\n#print axioms Erdos996.erdos_996\n' > axioms_check.lean
+          cat > axioms_check.lean <<'LEAN'
+          import ErdosLean
+          #print axioms Erdos996.erdos_996
+          #print axioms Erdos1199.erdos_1199
+          #print axioms Erdos1199.erdos_1199_pos
+          #print axioms Erdos1199.erdos_1199_fc
+          LEAN
           lake env lean axioms_check.lean | tee axioms.txt
-          grep -q "\[propext, Classical.choice, Quot.sound\]" axioms.txt
+          test "$(grep -c "depends on axioms: \[propext, Classical.choice, Quot.sound\]" axioms.txt)" -eq 4
+          ! grep -q sorryAx axioms.txt

@@ -11,3 +11,11 @@ FormalConjecturesForMathlib/NumberTheory/Lacunary.lean, commit a9fb8e86c0):
   Licensed under the Apache License, Version 2.0 (see LICENSE).
 
 These definitions appear, with minor adaptations, in ErdosLean/Erdos996/Statement.lean.
+
+This project also includes material derived from Formal Conjectures, namely the shape of the
+statement of Erdős Problem 1199 (FormalConjectures/ErdosProblems/1199.lean, commit a14a7a739a):
+
+  Copyright 2026 The Formal Conjectures Authors.
+  Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+This statement appears, with minor adaptations, in ErdosLean/Erdos1199/Statement.lean.

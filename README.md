@@ -118,6 +118,39 @@ graphs). The explicit witnesses are `r = 2`, `d = 24` (`K₄`-free) for part (i)
 - **Checks.** `#print axioms` for both theorems reports only `propext`, `Classical.choice` and
   `Quot.sound`. There is no `sorry`, no custom `axiom` and no `native_decide`.
 
+## Erdős Problem #514 (JSP-000412) — answer: **yes**
+
+This repository also contains a complete Lean 4 / Mathlib formalization of the affirmative answer
+to the first question of Erdős Problem #514, which is the question catalogued as JSP-000412. The
+main theorem
+
+```lean
+theorem Erdos514.erdos_514 : Erdos514Statement
+```
+
+in `ErdosLean/Erdos514/Main.lean` shows that every transcendental entire function `f` (entire
+and not a polynomial) has a continuous path `γ : ℝ → ℂ` with `‖γ t‖ → ∞` such that
+`‖f (γ t) / γ t ^ n‖ → ∞` as `t → ∞` for every `n : ℕ`, i.e. `|f|` grows faster than every
+polynomial along the path. The second and third questions on erdosproblems.com (length of the
+path, growth relative to `M(r)`) are not part of JSP-000412 and are not formalized here.
+
+- **Statement.** `ErdosLean/Erdos514/Statement.lean` was written from the problem text;
+  `google-deepmind/formal-conjectures` has no file for Problem 514.
+- **Mathematics.** erdosproblems.com records that Boas (unpublished) proved this part. The
+  result is implicit in J. L. Lewis, J. Rossi and A. Weitsman, *On the growth of subharmonic
+  functions along paths*, Ark. Mat. 22 (1984), 109–119, and follows directly from Jang-Mei Wu,
+  *Length of paths for subharmonic functions*, J. London Math. Soc. (2) 32 (1985), 497–505,
+  Theorem B ([doi:10.1112/jlms/s2-32.3.497](https://doi.org/10.1112/jlms/s2-32.3.497)), applied
+  to `log⁺ |f|`, as pointed out by P. Chojecki and N. Sothanaphan in the
+  [forum thread](https://www.erdosproblems.com/forum/thread/514). The mathematical result is due
+  to these authors. The Lean proof does not formalize Wu's theorem; it is a self-contained
+  argument: iterated Taylor shifts `shift f n` (entire and transcendental), unbounded tracts of
+  their superlevel sets (maximum modulus principle), a Carleman-type estimate showing that
+  `log |g|` grows at least like `c √r` in a tract whose complement meets every large circle, and a
+  nested chain of tracts through which the path runs.
+- **Checks.** `#print axioms Erdos514.erdos_514` reports only `propext`, `Classical.choice` and
+  `Quot.sound`. There is no `sorry`, no custom `axiom` and no `native_decide`.
+
 ## Build
 
 Toolchain pinned in `lean-toolchain`; Mathlib pinned in `lake-manifest.json`.

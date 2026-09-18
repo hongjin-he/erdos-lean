@@ -25,3 +25,12 @@ independently for this project. It follows the graphs-on-Fin-n convention of For
 (https://github.com/google-deepmind/formal-conjectures) and is similar in shape to the draft by
 Kenta Kitamura in formal-conjectures issue #828; no code or data from either source, or from
 KitaKen1/erdos-612-lean, is included.
+
+(No addition to NOTICE is required for Erdős #514.)
+
+ErdosLean/Erdos514/* contains no third-party material: the statement was written from the problem
+text on erdosproblems.com (google-deepmind/formal-conjectures has no file for Problem 514), and the
+proof uses only Mathlib. If the Lead prefers an explicit line, the following may be appended:
+
+ErdosLean/Erdos514/Statement.lean is original to this project and is not derived from
+Formal Conjectures.

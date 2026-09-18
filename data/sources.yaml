@@ -80,3 +80,32 @@
   url:
     - https://github.com/hongjin-he/erdos-lean/blob/d800c33deafb6e680f3808fa7c28d6fa0650bae2/ErdosLean/Erdos612/Main.lean
   version: "4.35.0-rc2"
+
+- key: ErdosLean.Erdos514
+  jsp: JSP-000412
+  epc: https://www.erdosproblems.com/514
+  theorem: Erdos514.erdos_514
+  file: ErdosLean/Erdos514/Main.lean
+  answer: "yes"
+  scope: "first question of Erdős #514 only (the JSP-000412 question)"
+  author:
+    informal:
+      human:
+        - Boas (unpublished, per erdosproblems.com; first name not stated there)
+        - John L. Lewis
+        - John Rossi
+        - Allen Weitsman
+        - Jang-Mei Wu
+    statement: HongJin HE
+    formal:
+      human: HongJin HE
+      github: hongjin-he
+      AI: Claude (Anthropic)
+  publication:
+    - "J.-M. Wu, Length of paths for subharmonic functions, J. London Math. Soc. (2) 32 (1985), no. 3, 497-505, Theorem B. doi:10.1112/jlms/s2-32.3.497"
+    - "J. L. Lewis, J. Rossi, A. Weitsman, On the growth of subharmonic functions along paths, Ark. Mat. 22 (1984), 109-119. doi:10.1007/BF02384375"
+  first_complete_commit: TBD  # fill in the 40-character SHA after the first push
+  url:
+    - https://github.com/hongjin-he/erdos-lean/blob/TBD/ErdosLean/Erdos514/Main.lean
+    - https://www.erdosproblems.com/forum/thread/514
+  version: "4.35.0-rc2"

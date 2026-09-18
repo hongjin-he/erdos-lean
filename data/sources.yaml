@@ -261,3 +261,37 @@
     - https://github.com/hongjin-he/erdos-lean/blob/0861a2ad9176573c3cf472af4e60c404df95f9be/ErdosLean/DuffinSchaeffer/Main.lean
     - https://www.erdosproblems.com/999
   version: "4.35.0-rc2"
+
+- key: ErdosLean.Erdos494
+  jsp: JSP-000399
+  epc: https://www.erdosproblems.com/494
+  theorem: Erdos494.erdos_494
+  file: ErdosLean/Erdos494/Main.lean
+  answer: "yes for all sufficiently large |A|: for every k > 2, A_k and |A| determine A once |A| >= N(k) (Gordon–Fraenkel–Straus); the literal question fails for |A| = k and |A| = 2k"
+  scope: >-
+    Complete: Gordon–Fraenkel–Straus eventual uniqueness for every k > 2, plus the Kruyt (|A| = k)
+    and Tao (|A| = 2k) counterexamples. The needed special case of Ridout's theorem (gaps between
+    smooth numbers) is proved, not assumed; the full p-adic Ridout theorem is not formalized.
+  catalog_status: Solved
+  author:
+    informal:
+      human:
+        - Basil Gordon
+        - Aviezri S. Fraenkel
+        - Ernst G. Straus
+        - John L. Selfridge   # algebraic reduction, [SeSt58]
+        - Daniel Kruyt        # counterexample |A| = k (per erdosproblems.com)
+        - Terence Tao         # counterexample |A| = 2k (per erdosproblems.com)
+    statement: Formal Conjectures authors (494.lean, copied verbatim)
+    formal:
+      human: HongJin HE
+      github: hongjin-he
+      AI: Claude (Anthropic)
+  publication:
+    - "B. Gordon, A. S. Fraenkel, E. G. Straus, On the determination of sets by the sets of sums of a certain order, Pacific J. Math. 12 (1962), no. 1, 187-196, §4. doi:10.2140/pjm.1962.12.187"
+    - "J. L. Selfridge, E. G. Straus, On the determination of numbers by their sums of a fixed order, Pacific J. Math. 8 (1958), no. 4, 847-856. doi:10.2140/pjm.1958.8.847"
+  first_complete_commit: pending
+  url:
+    - https://github.com/hongjin-he/erdos-lean/blob/main/ErdosLean/Erdos494/Main.lean
+    - https://www.erdosproblems.com/494
+  version: "4.35.0-rc2"

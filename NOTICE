@@ -26,14 +26,10 @@ independently for this project. It follows the graphs-on-Fin-n convention of For
 Kenta Kitamura in formal-conjectures issue #828; no code or data from either source, or from
 KitaKen1/erdos-612-lean, is included.
 
-(No addition to NOTICE is required for Erdős #514.)
-
 ErdosLean/Erdos514/* contains no third-party material: the statement was written from the problem
 text on erdosproblems.com (google-deepmind/formal-conjectures has no file for Problem 514), and the
-proof uses only Mathlib. If the Lead prefers an explicit line, the following may be appended:
-
-ErdosLean/Erdos514/Statement.lean is original to this project and is not derived from
-Formal Conjectures.
+proof uses only Mathlib. ErdosLean/Erdos514/Statement.lean is original to this project and is not
+derived from Formal Conjectures.
 
 The Erdős Problem 956 files (ErdosLean/Erdos956/) do not include material from third-party code.
 The statement was written from scratch from the problem text on erdosproblems.com. The
@@ -78,3 +74,16 @@ files in ErdosLean/DuffinSchaeffer/ do not include code from plby/lean-proofs. I
 do not include code from its Erdős Problem 999 development. The statement
 (ErdosLean/DuffinSchaeffer/Statement.lean) was written from scratch. The mathematics is due to
 D. Koukoulopoulos and J. Maynard (Ann. of Math. 192 (2020), 251–307).
+
+This project also includes material derived from Formal Conjectures, namely the definitions
+`sumMultiset` and `Erdos494Unique` and the statements of `erdos_494.variants.gordon_fraenkel_straus`,
+`erdos_494.variants.k_eq_card` and `erdos_494.variants.card_eq_2k`
+(FormalConjectures/ErdosProblems/494.lean, commit 1e668fa332):
+
+  Copyright 2025 The Formal Conjectures Authors.
+  Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+These appear verbatim in ErdosLean/Erdos494/Statement.lean (the three statements as the bodies of
+`GFSStatement` and `Erdos494Full`). The proofs in ErdosLean/Erdos494 are an independent
+formalization; no code from Formal Conjectures, from forks of it, or from other Lean developments
+of Erdős Problem #494 is included.

@@ -396,6 +396,68 @@ item 1 for integer-valued `ψ`.
   (Claude, Anthropic), including proof search and drafting of the documentation. It was checked by
   the Lean kernel and reviewed by HongJin HE.
 
+## Erdős Problem #494 (JSP-000399) — answer: **yes** for all sufficiently large `|A|` (Gordon–Fraenkel–Straus)
+
+This repository also contains a complete Lean 4 / Mathlib formalization of the
+Gordon–Fraenkel–Straus theorem, which answers Erdős Problem #494. The main theorems
+
+```lean
+theorem Erdos494.gordon_fraenkel_straus : GFSStatement
+theorem Erdos494.erdos_494              : Erdos494Full
+```
+
+in `ErdosLean/Erdos494/Main.lean` state
+
+```lean
+GFSStatement := ∀ k > 2, ∀ᶠ card in atTop, Erdos494Unique k card
+Erdos494Full := (∀ k > 2, ¬ Erdos494Unique k k) ∧ (∀ k > 2, ¬ Erdos494Unique k (2 * k)) ∧
+  GFSStatement
+```
+
+where `sumMultiset A k` is the multiset `A_k` of all sums of `k` distinct elements of a finite
+set `A ⊂ ℂ`, and `Erdos494Unique k n` says that any two sets `A, B ⊂ ℂ` with `|A| = |B| = n` and
+`A_k = B_k` are equal. So for every `k > 2` there is a threshold `N(k)` such that every finite set
+`A ⊂ ℂ` with `|A| ≥ N(k)` is determined by `A_k` and `|A|`. `erdos_494` also records why a size
+condition is needed: uniqueness fails for `|A| = k` (Kruyt) and for `|A| = 2k` (Tao), for every
+`k > 2`.
+
+- **Statement.** `ErdosLean/Erdos494/Statement.lean` copies the definitions `sumMultiset`,
+  `Erdos494Unique` and the statements of `erdos_494.variants.gordon_fraenkel_straus`,
+  `k_eq_card` and `card_eq_2k` verbatim from `FormalConjectures/ErdosProblems/494.lean` in
+  [google-deepmind/formal-conjectures](https://github.com/google-deepmind/formal-conjectures)
+  (commit `1e668fa332`), used under the Apache License 2.0; see `NOTICE`. The repository does not
+  depend on Formal Conjectures.
+- **Mathematics.** The theorem is due to B. Gordon, A. S. Fraenkel and E. G. Straus, *On the
+  determination of sets by the sets of sums of a certain order*, Pacific J. Math. **12** (1962),
+  no. 1, 187–196 ([doi:10.2140/pjm.1962.12.187](https://doi.org/10.2140/pjm.1962.12.187)), §4.
+  The algebraic reduction is from J. L. Selfridge and E. G. Straus, *On the determination of
+  numbers by their sums of a fixed order*, Pacific J. Math. **8** (1958), no. 4, 847–856
+  ([doi:10.2140/pjm.1958.8.847](https://doi.org/10.2140/pjm.1958.8.847)). The counterexamples
+  for `|A| = k` and `|A| = 2k` are due to D. Kruyt and T. Tao, as recorded on
+  [erdosproblems.com/494](https://www.erdosproblems.com/494). The mathematical results are due to
+  these authors.
+- **Proof route.** Power sums and Newton's identities reduce uniqueness for `|A| = n` to the
+  non-vanishing of the integer `f_k(n, j) = Σ_{i=1}^{k} (-1)^{i-1} i^{j-1} C(n, k-i)` for all
+  `j ≥ 1` (`unique_of_gfsPoly_ne_zero`). The number-theoretic core `gfs_core` proves this for
+  large `n`, following §4 of the paper: bounded `j` is elementary; for large `j`, `f_k(n, j) = 0`
+  forces two `(k+1)`-smooth integers to be very close, which a gap theorem for smooth numbers
+  rules out except in an exact case that is handled directly.
+- **Ridout's theorem.** Gordon, Fraenkel and Straus quote Ridout's `p`-adic Thue–Siegel–Roth
+  theorem for the gap theorem. That theorem is not in Mathlib, and this repository does not assume
+  it. The development proves the special case it needs (`smooth_gap`, `ridout_smooth`): for
+  coprime `P`-smooth `x, y`, `|x - y| ≥ max(x, y)^{1-δ}` once `max(x, y)` is large. The proof
+  uses Mahler's reduction to rational approximations of `(b/a)^{1/r}`, and a Thue–Siegel–Dyson
+  type theorem (`dyson_binomial`, exponent `10√r`) proved by Roth's method in two variables:
+  Siegel's lemma (Mathlib), and Roth's lemma for two variables with the Wronskian proof of
+  W. M. Schmidt, *Diophantine Approximation*, LNM 785, Ch. V. The full `p`-adic Ridout theorem
+  is not formalized.
+- **Checks.** `#print axioms` for `Erdos494.erdos_494` and `Erdos494.gordon_fraenkel_straus`
+  reports only `propext`, `Classical.choice` and `Quot.sound`. There is no `sorry`, no custom
+  `axiom` and no `native_decide`. No published theorem is taken as a hypothesis.
+- **AI assistance.** The Lean code for this result was written with substantial AI assistance
+  (Claude, Anthropic), including proof search and drafting of the documentation. It was checked by
+  the Lean kernel and reviewed by HongJin HE.
+
 ## Build
 
 Toolchain pinned in `lean-toolchain`; Mathlib pinned in `lake-manifest.json`.

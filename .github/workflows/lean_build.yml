@@ -28,7 +28,9 @@ jobs:
           #print axioms Erdos790.erdos_790
           #print axioms DuffinSchaeffer.duffin_schaeffer
           #print axioms DuffinSchaeffer.erdos_999
+          #print axioms Erdos494.erdos_494
+          #print axioms Erdos494.gordon_fraenkel_straus
           LEAN
           lake env lean axioms_check.lean | tee axioms.txt
-          test "$(grep -c "depends on axioms: \[propext, Classical.choice, Quot.sound\]" axioms.txt)" -eq 15
+          test "$(grep -c "depends on axioms: \[propext, Classical.choice, Quot.sound\]" axioms.txt)" -eq 17
           ! grep -q sorryAx axioms.txt

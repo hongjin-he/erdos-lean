@@ -295,3 +295,33 @@
     - https://github.com/hongjin-he/erdos-lean/blob/131cefff65ca0e0627a1fde75ff62e4f2758b6a9/ErdosLean/Erdos494/Main.lean
     - https://www.erdosproblems.com/494
   version: "4.35.0-rc2"
+
+- key: ErdosLean.Erdos612All
+  jsp: JSP-000497
+  epc: https://www.erdosproblems.com/612
+  theorem: Erdos612All.erdos_612_all
+  file: ErdosLean/Erdos612All/Main.lean
+  answer: "no"
+  scope: "part (i) false for every r >= 2; part (ii) false for every r >= 4 (odd r = 2, 3: see KitaKen1/erdos-612-lean)"
+  author:
+    informal:
+      human:
+        - Éva Czabarka
+        - Inne Singgih
+        - László A. Székely
+        - Hangdi Chen
+        - Yaojun Chen
+    statement: HongJin HE (reuses ErdosLean/Erdos612/Statement.lean)
+    formal:
+      human: HongJin HE
+      github: hongjin-he
+      AI: Claude (Anthropic)
+  doi: https://doi.org/10.1016/j.jctb.2021.06.001
+  arxiv:
+    - https://arxiv.org/abs/2009.02611
+    - https://arxiv.org/abs/2609.03346
+  prior_lean: https://github.com/KitaKen1/erdos-612-lean  # odd case r = 2 proved and r = 3 refuted, 2026-09-08
+  first_complete_commit: pending
+  url:
+    - https://github.com/hongjin-he/erdos-lean/blob/main/ErdosLean/Erdos612All/Main.lean
+  version: "4.35.0-rc2"

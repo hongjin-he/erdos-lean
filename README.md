@@ -458,6 +458,51 @@ condition is needed: uniqueness fails for `|A| = k` (Kruyt) and for `|A| = 2k` (
   (Claude, Anthropic), including proof search and drafting of the documentation. It was checked by
   the Lean kernel and reviewed by HongJin HE.
 
+### Erdős Problem #612 for all `r` (JSP-000497, `ErdosLean/Erdos612All`)
+
+`ErdosLean/Erdos612All` extends the #612 development above from single witnesses to every `r`
+covered by the two published constructions. The main theorem
+
+```lean
+theorem Erdos612All.erdos_612_all : Erdos612AllAnswer
+```
+
+in `ErdosLean/Erdos612All/Main.lean` states
+
+```lean
+Erdos612AllAnswer :=
+  (∀ r : ℕ, 2 ≤ r → ¬ EvenConjAt r) ∧
+  (∀ r : ℕ, 4 ≤ r → ¬ OddConjAt r) ∧
+  (∀ r : ℕ, 2 ≤ r → ¬ DiamBoundUniform (2 * r) ((r - 1) * (3 * r + 2)) (evenCoeff r)) ∧
+  (∀ r : ℕ, 4 ≤ r → ¬ DiamBoundUniform (2 * r + 1) (3 * r - 1) (oddCoeff r))
+```
+
+that is: part (i) (`K_{2r}`-free, `(r-1)(3r+2) ∣ d`) is false for **every** `r ≥ 2`, and part (ii)
+(`K_{2r+1}`-free, `3r-1 ∣ d`) is false for **every** `r ≥ 4`, in both readings of `O(1)`. The
+components are also available as `Erdos612All.not_evenConjAt` and `Erdos612All.not_oddConjAt`.
+
+- **Statement.** `ErdosLean/Erdos612All/Statement.lean` reuses the definitions `DiamBound`,
+  `DiamBoundUniform`, `evenCoeff`, `oddCoeff`, `EvenConjAt` and `OddConjAt` of
+  `ErdosLean/Erdos612/Statement.lean` unchanged; nothing is redefined.
+- **Scope.** Together with the table above, the only cases of #612 not covered by this
+  repository are part (ii) with `r ∈ {1, 2, 3}`: `r = 1` is due to Erdős–Pach–Pollack–Tuza,
+  and `r = 2` (true) and `r = 3` (false) were formalized earlier by Kenta Kitamura in
+  [KitaKen1/erdos-612-lean](https://github.com/KitaKen1/erdos-612-lean). No credit is claimed for
+  those cases and no code from that repository is used.
+- **Mathematics.** Part (i): for `r = s + 1` the Lean construction uses the block `C_{s,δ}` of
+  Czabarka–Singgih–Székely [CSS21] (§3 of arXiv:2009.02611v1) with `δ = 4s(s+1)(3s+5)`, without
+  their `±1` weight adjustment. Part (ii): for `r = q + 4` it uses the graph `J_{p,r}` of Hangdi
+  Chen and Yaojun Chen [CC26] (arXiv:2609.03346v1, §2, Theorem 2.7) with
+  `δ = 6(6r-5)(2r-1)(3r-1)`; the layer called (F) in [CC26] is replaced by an explicit split into
+  `2r-7` clumps of weight `3u` and four clumps of weight `4u`, where `u = 2(3r-1)(6r-5)` (this
+  deviation is documented in `ErdosLean/Erdos612All/Defs.lean`). The degree, clique and growth
+  conditions are proved symbolically for all `r`, and the general window lemma and
+  `Erdos612.not_diamBound_of_fam` from `ErdosLean/Erdos612` give the result. The mathematical
+  results are due to the authors of [CSS21] and [CC26].
+- **Checks.** `#print axioms` for `Erdos612All.erdos_612_all`, `Erdos612All.not_evenConjAt` and
+  `Erdos612All.not_oddConjAt` reports only `propext`, `Classical.choice` and `Quot.sound`. There
+  is no `sorry`, no custom `axiom`, no `native_decide` and no `decide` in `ErdosLean/Erdos612All`.
+
 ## Build
 
 Toolchain pinned in `lean-toolchain`; Mathlib pinned in `lake-manifest.json`.

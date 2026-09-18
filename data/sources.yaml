@@ -104,8 +104,8 @@
   publication:
     - "J.-M. Wu, Length of paths for subharmonic functions, J. London Math. Soc. (2) 32 (1985), no. 3, 497-505, Theorem B. doi:10.1112/jlms/s2-32.3.497"
     - "J. L. Lewis, J. Rossi, A. Weitsman, On the growth of subharmonic functions along paths, Ark. Mat. 22 (1984), 109-119. doi:10.1007/BF02384375"
-  first_complete_commit: TBD  # fill in the 40-character SHA after the first push
+  first_complete_commit: b932841ff3d80f369a5a9308b6b3e88a78dd37ee
   url:
-    - https://github.com/hongjin-he/erdos-lean/blob/TBD/ErdosLean/Erdos514/Main.lean
+    - https://github.com/hongjin-he/erdos-lean/blob/b932841ff3d80f369a5a9308b6b3e88a78dd37ee/ErdosLean/Erdos514/Main.lean
     - https://www.erdosproblems.com/forum/thread/514
   version: "4.35.0-rc2"

@@ -177,3 +177,26 @@
   url:
     - https://github.com/hongjin-he/erdos-lean/blob/3593a57e823349d3e607ed3f3ab12542671d03f4/ErdosLean/Erdos265/Main.lean
   version: "4.35.0-rc2"
+
+- key: ErdosLean.Erdos995
+  jsp: JSP-000828
+  epc: https://www.erdosproblems.com/995
+  theorem: Erdos995.erdos_995
+  file: ErdosLean/Erdos995/Main.lean
+  answer: "worst-case growth N (log N)^{1/2+o(1)}; o(N sqrt(log log N)) fails"
+  author:
+    informal:
+      human:
+        - Boon Suan Ho      # lower bound, arXiv:2604.18535 v2, Theorem 1.6 (p = 2)
+        - Paul Erdős        # upper bound, Compositio Math. 16 (1964), 52-65 (elementary proof: Ho, Remark 7.1)
+    statement: HongJin HE (IsLacunary and conventions from the Formal Conjectures authors, 996.lean)
+    formal:
+      human: HongJin HE
+      github: hongjin-he
+      AI: Claude (Anthropic)
+  arxiv: https://arxiv.org/abs/2604.18535
+  first_complete_commit: <40-char SHA to be filled after push>
+  url:
+    - https://github.com/hongjin-he/erdos-lean/blob/<SHA>/ErdosLean/Erdos995/Main.lean
+    - https://www.erdosproblems.com/forum/thread/995
+  version: "4.35.0-rc2"

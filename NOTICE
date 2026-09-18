@@ -53,3 +53,12 @@ These appear, with minor adaptations (renamed `IsRationalPair` and `Erdos265Lims
 in ErdosLean/Erdos265/Statement.lean. The proofs in ErdosLean/Erdos265 are an independent
 formalization and do not copy code from that repository. The mathematics of the barrier half
 (aₙ^{1/2ⁿ} → 1) is due to K. Kitamura.
+
+This project also includes material derived from Formal Conjectures, namely the definition
+`IsLacunary` and the conventions for the statement of Erdős Problem 996
+(FormalConjectures/ErdosProblems/996.lean, commit a9fb8e86c0), reused for Erdős Problem 995:
+
+  Copyright 2025 The Formal Conjectures Authors.
+  Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+This definition appears, with minor adaptations, in ErdosLean/Erdos995/Statement.lean.

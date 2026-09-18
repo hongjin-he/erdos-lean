@@ -243,6 +243,52 @@ If `β*` is the supremum of the achievable exponents, then (1) with `β = 51/50`
   (Claude, Anthropic), including proof search and drafting of the documentation. It was checked by
   the Lean kernel and reviewed by HongJin HE.
 
+## Erdős Problem #995 (JSP-000828): growth is **N (log N)^{1/2+o(1)}**
+
+This repository also contains a complete Lean 4 / Mathlib formalization of the answer to
+Erdős Problem #995. The main theorem
+
+```lean
+theorem Erdos995.erdos_995 : Erdos995Answer
+```
+
+in `ErdosLean/Erdos995/Main.lean` proves the conjunction of four statements:
+
+1. **Upper bound** (`ErdosUpperBound`). For every lacunary `(n_k)`, every `f ∈ L²(𝕋)` and every
+   `ε > 0`, for almost every `x`, `∑_{k<N} f(n_k x) = o(N (log N)^{1/2+ε})`.
+   The Lean proof works for every integer sequence, lacunary or not.
+2. **Lower bound** (`HoLowerBound`). There are a real-valued mean-zero `f ∈ L²(𝕋)` and a sequence
+   `(n_k)` with `n_0 ≥ 1` and `n_{k+1} ≥ 2 n_k` such that, for almost every `x` and every `ε > 0`,
+   `limsup_N ∑_{k<N} f(n_k x) / (N (log N)^{1/2−ε}) = +∞`.
+3. **Critical exponent** (`Erdos995CriticalExponent`). The a.e. bound `O(N (log N)^θ)` holds for
+   every lacunary `(n_k)` and every `f ∈ L²` when `θ > 1/2`. It fails for some `(n_k)` and `f`
+   when `θ < 1/2`.
+4. **The concrete question** (`¬ LogLogQuestion`). The bound `∑_{k≤N} f(n_k x) = o(N √(log log N))`
+   a.e. is false in general.
+
+`Erdos995.erdos_995_logLog : ¬ LogLogQuestion` states item 4 on its own.
+
+- **Statement.** `ErdosLean/Erdos995/Statement.lean` transcribes the problem text of
+  [erdosproblems.com/995](https://www.erdosproblems.com/995). The definition `IsLacunary` and the
+  conventions (the circle `AddCircle 1` with Haar measure, `f({α n_k})` written as `f (n_k • x)`)
+  come from `FormalConjectures/ErdosProblems/996.lean` in
+  [google-deepmind/formal-conjectures](https://github.com/google-deepmind/formal-conjectures)
+  (commit `a9fb8e86c0`), used under the Apache License 2.0; see `NOTICE`. Formal Conjectures has
+  no statement of #995.
+- **Mathematics.** The lower bound is Theorem 1.6 (`p = 2`) of Boon Suan Ho,
+  *Counterexamples for lacunary dilates via dyadic spike blocks*,
+  [arXiv:2604.18535](https://arxiv.org/abs/2604.18535) (v2). The upper bound was stated by
+  P. Erdős, *Problems and results on diophantine approximations*, Compositio Math. **16** (1964),
+  52–65. Its elementary proof is Remark 7.1 of Ho's paper. The mathematical results are due to
+  these authors. The formalization reuses the spike, block and hit-event machinery of
+  `ErdosLean/Erdos996/`.
+- **Scope.** The problem asks to "estimate the growth". The formalization records the
+  worst-case answer `N (log N)^{1/2+o(1)}`, which B. S. Ho proposed as a resolution on the
+  [erdosproblems.com forum](https://www.erdosproblems.com/forum/thread/995). As of 2026-09-19,
+  erdosproblems.com still lists #995 as open.
+- **Checks.** `#print axioms Erdos995.erdos_995` reports only `propext`, `Classical.choice` and
+  `Quot.sound`. There is no `sorry`, no custom `axiom` and no `native_decide`.
+
 ## Build
 
 Toolchain pinned in `lean-toolchain`; Mathlib pinned in `lake-manifest.json`.

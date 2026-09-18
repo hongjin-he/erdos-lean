@@ -76,7 +76,7 @@
     - https://arxiv.org/abs/2009.02611
     - https://arxiv.org/abs/2609.03346
   prior_lean: https://github.com/KitaKen1/erdos-612-lean  # odd case r = 3 refuted (uniform reading), 2026-09-08
-  first_complete_commit: pending  # set in the follow-up commit
+  first_complete_commit: d800c33deafb6e680f3808fa7c28d6fa0650bae2
   url:
-    - https://github.com/hongjin-he/erdos-lean/blob/main/ErdosLean/Erdos612/Main.lean
+    - https://github.com/hongjin-he/erdos-lean/blob/d800c33deafb6e680f3808fa7c28d6fa0650bae2/ErdosLean/Erdos612/Main.lean
   version: "4.35.0-rc2"

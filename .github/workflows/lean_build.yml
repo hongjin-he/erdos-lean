@@ -1,0 +1,16 @@
+name: Lean build
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@v1
+      - name: Print axioms of the main theorem
+        run: |
+          printf 'import ErdosLean\n#print axioms Erdos996.erdos_996\n' > axioms_check.lean
+          lake env lean axioms_check.lean | tee axioms.txt
+          grep -q "\[propext, Classical.choice, Quot.sound\]" axioms.txt

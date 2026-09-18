@@ -1,0 +1,13 @@
+erdos-lean
+Copyright 2026 HongJin HE
+
+This project includes material derived from Formal Conjectures
+(https://github.com/google-deepmind/formal-conjectures), namely the definitions
+`IsLacunary`, `fourierPartial` and the shape of the statement of Erdős Problem 996
+(FormalConjectures/ErdosProblems/996.lean and
+FormalConjecturesForMathlib/NumberTheory/Lacunary.lean, commit a9fb8e86c0):
+
+  Copyright 2025 The Formal Conjectures Authors.
+  Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+These definitions appear, with minor adaptations, in ErdosLean/Erdos996/Statement.lean.

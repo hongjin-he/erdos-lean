@@ -1,1 +1,1 @@
-import ErdosLean.Basic
+import ErdosLean.Erdos996.Main

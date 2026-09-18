@@ -151,6 +151,50 @@ path, growth relative to `M(r)`) are not part of JSP-000412 and are not formaliz
 - **Checks.** `#print axioms Erdos514.erdos_514` reports only `propext`, `Classical.choice` and
   `Quot.sound`. There is no `sorry`, no custom `axiom` and no `native_decide`.
 
+## Erdős Problem #956 (JSP-000796) — answer: **yes** (lower bound `h(n) ≫ n^{4/3}`)
+
+This repository also contains a complete Lean 4 / Mathlib formalization of the affirmative answer
+to the question of Erdős Problem #956. Here `h(n)` is the maximal number of pairs at set-distance
+exactly 1 among `n` pairwise disjoint translates of one compact convex set in the plane. The main
+theorems
+
+```lean
+theorem Erdos956.erdos956      : Erdos956Statement
+theorem Erdos956.erdos956_main : Erdos956Statement ∧ Erdos956LowerBound ∧ Erdos956AllExponents
+```
+
+in `ErdosLean/Erdos956/Main.lean` show that there is `c > 0` with `h(n) > n^{1+c}` for all large
+`n` (`Erdos956Statement`, the question as posed), that `h(n) ≥ c₀ n^{4/3}` for some `c₀ > 0` and all
+large `n` (`Erdos956LowerBound`), and that `h(n) > n^{1+c}` eventually for every `c < 1/3`
+(`Erdos956AllExponents`).
+
+- **Scope.** The problem asks to "determine `h(n)`". The answer in the literature is
+  `h(n) = Θ(n^{4/3})`. Only the lower bound is formalized here. The upper bound
+  `h(n) ≪ n^{4/3}` of Erdős and Pach (Combinatorica 10 (1990), 261–269) needs the crossing lemma,
+  which is not in Mathlib. It is stated as `ErdosPachUpperBound` but **not proved**.
+  `Erdos956.erdos956_theta_of_upper` derives `h(n) = Θ(n^{4/3})` from it, taking the upper bound
+  as a hypothesis.
+- **Statement.** `ErdosLean/Erdos956/Statement.lean` was written from scratch from the text of
+  erdosproblems.com/956, because formal-conjectures has no file for #956. `h n` is an `sSup` over `ℕ`.
+  The set of achievable counts is bounded, so this is a genuine maximum.
+- **Mathematics.** The lower bound is due to Pavel Valtr. He announced `t₂(n) = Θ(n^{4/3})` in
+  *The unit-distance problem for convex sets*, Oberwolfach Reports 2 (2005), Report 17/2005
+  ([doi:10.4171/OWR/2005/17](https://doi.org/10.4171/OWR/2005/17)). The parabolic-grid mechanism
+  appears in his manuscript *Strictly convex norms allowing many unit distances and related
+  touching questions* ([kam.mff.cuni.cz/~valtr/n.pdf](https://kam.mff.cuni.cz/~valtr/n.pdf)).
+  The formalization follows the self-contained note *Unit distances between disjoint convex
+  translates* (27 April 2026, [ulam.ai/research/erdos956.pdf](https://www.ulam.ai/research/erdos956.pdf)).
+  The note adapts Valtr's construction to disjoint translates. It was generated with GPT-5.5 Pro
+  and posted by Przemek Chojecki on the
+  [erdosproblems.com forum](https://www.erdosproblems.com/forum/thread/956).
+- **Prior Lean.** The Lean file that accompanies the note
+  ([ulam.ai/research/erdos956.lean](https://www.ulam.ai/research/erdos956.lean), produced with
+  Aristotle) formalizes only the counting and asymptotic arithmetic of the construction. It does
+  not define `h(n)` or prove any statement about it. This repository does not use it.
+- **Checks.** `#print axioms` for `Erdos956.erdos956` and `Erdos956.erdos956_main` reports only
+  `propext`, `Classical.choice` and `Quot.sound`. There is no `sorry`, no custom `axiom` and no
+  `native_decide`.
+
 ## Build
 
 Toolchain pinned in `lean-toolchain`; Mathlib pinned in `lake-manifest.json`.

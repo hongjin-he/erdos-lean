@@ -34,3 +34,10 @@ proof uses only Mathlib. If the Lead prefers an explicit line, the following may
 
 ErdosLean/Erdos514/Statement.lean is original to this project and is not derived from
 Formal Conjectures.
+
+The Erdős Problem 956 files (ErdosLean/Erdos956/) do not include material from third-party code.
+The statement was written from scratch from the problem text on erdosproblems.com. The
+construction follows the mathematical note "Unit distances between disjoint convex translates"
+(https://www.ulam.ai/research/erdos956.pdf, 27 April 2026). The note's mathematics is based on
+the work of P. Valtr (Oberwolfach Reports 2 (2005), Report 17/2005;
+https://kam.mff.cuni.cz/~valtr/n.pdf). No code from the note's accompanying Lean file was used.

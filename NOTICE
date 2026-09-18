@@ -41,3 +41,15 @@ construction follows the mathematical note "Unit distances between disjoint conv
 (https://www.ulam.ai/research/erdos956.pdf, 27 April 2026). The note's mathematics is based on
 the work of P. Valtr (Oberwolfach Reports 2 (2005), Report 17/2005;
 https://kam.mff.cuni.cz/~valtr/n.pdf). No code from the note's accompanying Lean file was used.
+
+This project also includes material derived from erdos-265-lean by Kenta Kitamura
+(https://github.com/KitaKen1/erdos-265-lean, commit 16db9f29ad), namely the shape of the
+predicate `IsRationalPairSequence` and of the statement `erdos265_negative_answer`
+(lean/Erdos265/Statement.lean and README.md):
+
+  Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+These appear, with minor adaptations (renamed `IsRationalPair` and `Erdos265LimsupNegative`),
+in ErdosLean/Erdos265/Statement.lean. The proofs in ErdosLean/Erdos265 are an independent
+formalization and do not copy code from that repository. The mathematics of the barrier half
+(aₙ^{1/2ⁿ} → 1) is due to K. Kitamura.

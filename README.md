@@ -195,6 +195,54 @@ large `n` (`Erdos956LowerBound`), and that `h(n) > n^{1+c}` eventually for every
   `propext`, `Classical.choice` and `Quot.sound`. There is no `sorry`, no custom `axiom` and no
   `native_decide`.
 
+## Erdős Problem #265 (JSP-000229) — partial: **51/50 ≤ β\* ≤ 2** (optimal exponent open)
+
+This repository contains a Lean 4 / Mathlib formalization of the two known halves of
+Erdős Problem #265. This is **not** a complete answer: the problem remains open on
+erdosproblems.com, because the optimal doubly exponential exponent is unknown. The main theorems
+
+```lean
+theorem Erdos265.erdos_265        : Erdos265Statement
+theorem Erdos265.erdos_265_limsup : Erdos265LimsupNegative
+theorem Erdos265.growth_half      : ∃ a : ℕ → ℕ, IsRationalPair a ∧
+    Tendsto (fun n : ℕ ↦ (a n : ℝ) ^ ((1 : ℝ) / (51 / 50 : ℝ) ^ n)) atTop atTop
+```
+
+are in `ErdosLean/Erdos265/Main.lean`. Here `IsRationalPair a` means that `a` is strictly
+increasing with `2 ≤ a 0`, and that `∑ 1/aₙ` and `∑ 1/(aₙ − 1)` are summable with rational
+sums. `Erdos265Statement` says that
+(1) some admissible sequence satisfies `aₙ^{1/βⁿ} → ∞` for some `β > 1`,
+(2) some admissible sequence satisfies `aₙ^{1/n} → ∞`, and
+(3) every admissible sequence satisfies `aₙ^{1/2ⁿ} → 1`.
+If `β*` is the supremum of the achievable exponents, then (1) with `β = 51/50` and (3) together give
+`51/50 ≤ β* ≤ 2`. The exact value of `β*` is still open.
+
+- **Statement.** `ErdosLean/Erdos265/Statement.lean`. The shapes of `IsRationalPair` and
+  `Erdos265LimsupNegative` come from
+  [KitaKen1/erdos-265-lean](https://github.com/KitaKen1/erdos-265-lean), used under the
+  Apache License 2.0; see `NOTICE`.
+- **Mathematics (growth half).** V. Kovač and T. Tao, *On several irrationality problems for
+  Ahmes series*, [arXiv:2406.17593](https://arxiv.org/abs/2406.17593) (v4, Theorem 2.8 and
+  Corollary 2.9 with `d = 2`, proved in §7); Acta Math. Hungar. 175 (2025), 572–608,
+  [doi:10.1007/s10474-025-01528-0](https://doi.org/10.1007/s10474-025-01528-0). Their result uses
+  `1/aₙ` and `1/(aₙ+1)`, so we shift the index by one. Our parameters differ from the paper's:
+  `N_k = 4^{m_k}`, `M_k = 2^{m_k}`, `m_0 = 40`, `m_{k+1} = m_k + ⌊m_k/10⌋ + 1`,
+  `f₂(x) = 1/(x(x−1))` and `β = 51/50`, so the constants are not the ones in the paper. The
+  mathematical result is due to Kovač and Tao. As far as we know, this is the first Lean
+  formalization of the Kovač–Tao construction.
+- **Mathematics (barrier half).** Kenta Kitamura proved that `aₙ^{1/2ⁿ} → 1` for every admissible
+  sequence, which settles the `limsup aₙ^{1/2ⁿ} > 1` sub-question negatively. He also
+  formalized it first, in [KitaKen1/erdos-265-lean](https://github.com/KitaKen1/erdos-265-lean)
+  (2026-09-07). `barrier_half` here is an independent Lean formalization of Kitamura's
+  argument (tail envelope, square recurrence, second residual). The mathematics of this half
+  is due to K. Kitamura.
+- **Checks.** `#print axioms` for `erdos_265`, `erdos_265_limsup`, `growth_half` and
+  `barrier_half` reports only `propext`, `Classical.choice` and `Quot.sound`. There is no
+  `sorry`, no custom `axiom` and no `native_decide`.
+- **AI assistance.** The Lean code for this result was written with substantial AI assistance
+  (Claude, Anthropic), including proof search and drafting of the documentation. It was checked by
+  the Lean kernel and reviewed by HongJin HE.
+
 ## Build
 
 Toolchain pinned in `lean-toolchain`; Mathlib pinned in `lake-manifest.json`.

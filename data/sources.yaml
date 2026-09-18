@@ -147,3 +147,33 @@
   url:
     - https://github.com/hongjin-he/erdos-lean/blob/74f1acfb9c181abd204d80655bcdd17679e4aec0/ErdosLean/Erdos956/Main.lean
   version: "4.35.0-rc2"
+
+- key: ErdosLean.Erdos265
+  jsp: JSP-000229
+  epc: https://www.erdosproblems.com/265
+  theorem: Erdos265.erdos_265
+  file: ErdosLean/Erdos265/Main.lean
+  answer: "partial: 51/50 <= sup beta <= 2 (optimal exponent open)"
+  catalog_status: Open
+  author:
+    informal:
+      human:
+        - Vjekoslav Kovač      # growth half (arXiv:2406.17593 v4, Thm 2.8 / Cor 2.9, §7)
+        - Terence Tao          # growth half
+        - Kenta Kitamura       # barrier half (a_n^{1/2^n} -> 1)
+    statement: HongJin HE; shapes of IsRationalPair / Erdos265LimsupNegative from KitaKen1/erdos-265-lean (Apache-2.0)
+    formal:
+      human: HongJin HE
+      github: hongjin-he
+      AI: Claude (Anthropic)
+  prior_formal:
+    - repo: https://github.com/KitaKen1/erdos-265-lean
+      commit: 16db9f29ad
+      date: 2026-09-07
+      covers: barrier half (a_n^{1/2^n} -> 1, limsup sub-question)
+  arxiv: https://arxiv.org/abs/2406.17593
+  journal: Acta Math. Hungar. 175 (2025), 572-608, doi:10.1007/s10474-025-01528-0
+  first_complete_commit: TBD  # fill in the 40-character SHA after the push
+  url:
+    - https://github.com/hongjin-he/erdos-lean/blob/TBD/ErdosLean/Erdos265/Main.lean
+  version: "4.35.0-rc2"

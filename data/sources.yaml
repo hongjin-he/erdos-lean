@@ -256,8 +256,8 @@
   doi: https://doi.org/10.4007/annals.2020.192.1.5
   arxiv: https://arxiv.org/abs/1907.04593
   third_party_code: "auxiliary second-moment lemmas in Parts/MeasureLower.lean adapted from plby/lean-proofs ErdosProblems/Erdos1165/SecondMoment.lean (Formal Conjectures Authors, Apache-2.0)"
-  first_complete_commit: pending
+  first_complete_commit: 0861a2ad9176573c3cf472af4e60c404df95f9be
   url:
-    - https://github.com/hongjin-he/erdos-lean/blob/main/ErdosLean/DuffinSchaeffer/Main.lean
+    - https://github.com/hongjin-he/erdos-lean/blob/0861a2ad9176573c3cf472af4e60c404df95f9be/ErdosLean/DuffinSchaeffer/Main.lean
     - https://www.erdosproblems.com/999
   version: "4.35.0-rc2"

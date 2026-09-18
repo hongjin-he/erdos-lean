@@ -143,7 +143,7 @@
     - "P. Erdős and J. Pach, Variations on the theme of repeated distances, Combinatorica 10 (1990), 261-269, doi:10.1007/BF02122780"
   note: https://www.ulam.ai/research/erdos956.pdf
   forum: https://www.erdosproblems.com/forum/thread/956
-  first_complete_commit: TBD  # fill in the 40-character SHA after push
+  first_complete_commit: 74f1acfb9c181abd204d80655bcdd17679e4aec0
   url:
-    - https://github.com/hongjin-he/erdos-lean/blob/<SHA>/ErdosLean/Erdos956/Main.lean
+    - https://github.com/hongjin-he/erdos-lean/blob/74f1acfb9c181abd204d80655bcdd17679e4aec0/ErdosLean/Erdos956/Main.lean
   version: "4.35.0-rc2"

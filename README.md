@@ -289,6 +289,52 @@ in `ErdosLean/Erdos995/Main.lean` proves the conjunction of four statements:
 - **Checks.** `#print axioms Erdos995.erdos_995` reports only `propext`, `Classical.choice` and
   `Quot.sound`. There is no `sorry`, no custom `axiom` and no `native_decide`.
 
+## Erdős Problem #790 (JSP-000649): `l(n) = n^{1-o(1)}`; answers **yes** and **no**
+
+This repository also contains a complete Lean 4 / Mathlib formalization of the lower bound
+`l(n) ≫ n/(log n)²` for Erdős Problem #790 and of its consequences for the two questions. The
+main theorem
+
+```lean
+theorem Erdos790.erdos_790 : Erdos790Answer
+```
+
+in `ErdosLean/Erdos790/Main.lean` concerns `l(n)`, the largest `k` such that every set of `n`
+integers contains a sum-free subset of size at least `k`. Here `B` is sum-free if no element of
+`B` is the sum of two or more distinct other elements of `B`. The theorem proves five statements:
+
+1. **Lower bound.** There is `c > 0` with `c · n / (log n)² ≤ l(n)` for all `n ≥ 2`. The proof
+   gives `c = 1/1024`.
+2. **Trivial upper bound.** `l(n) ≤ n` for all `n`.
+3. **First question: yes.** `l(n) / √n → ∞`.
+4. **Exponent.** For every `ε > 0`, `n^{1-ε} ≤ l(n)` for all large `n`, so `l(n) = n^{1-o(1)}`.
+   This is the conjecture of Choi, Komlós and Szemerédi.
+5. **Second question: no.** There is no `c > 0` such that `l(n) < n^{1-c}`, not even for
+   infinitely many `n`.
+
+- **Statement.** `ErdosLean/Erdos790/Statement.lean` was written from the problem text on
+  [erdosproblems.com/790](https://www.erdosproblems.com/790). Formal Conjectures has no file for
+  #790. `IsSumFree B` says that no `x ∈ B` equals `∑ S` for a set `S ⊆ B` with `x ∉ S` and
+  `|S| ≥ 2`, that is, no `a₁ = a₂ + ⋯ + a_r` with `r ≥ 3` and all `aᵢ ∈ B` distinct. `l n` is the
+  `sSup` of the admissible `k`, which is the literal reading of "`l(n)` maximal such that ...".
+- **Mathematics.** The argument is Theorem 1 of Samuel Korsky, *Large Sum-Free Subsets of Sets of
+  Integers* (preprint, 13 September 2026). It was posted as a
+  [proof claim on the erdosproblems.com forum](https://www.erdosproblems.com/forum/thread/790/proof-claims)
+  on 2026-09-13. The paper says the main idea was developed by GPT Astra. The mathematical
+  result is due to S. Korsky. In the Lean proof the random choice of dyadic intervals is replaced
+  by an averaging argument over all colourings, and all constants are explicit.
+- **Scope.** The problem asks to "estimate" `l(n)`. The formalization records the exponent
+  (`l(n) = n^{1-o(1)}`) and answers both specific questions. It does not formalize the upper bound
+  `l(n) ≪ n / log n` of Choi, Komlós and Szemerédi (Trans. Amer. Math. Soc. 212 (1975),
+  307–313). The gap between `n/(log n)²` and `n/log n` is still open. As of 2026-09-19,
+  erdosproblems.com still lists #790 as open and Korsky's proof has not appeared in a journal or
+  on arXiv.
+- **Checks.** `#print axioms Erdos790.erdos_790` reports only `propext`, `Classical.choice` and
+  `Quot.sound`. There is no `sorry`, no custom `axiom` and no `native_decide`.
+- **AI assistance.** The Lean code for this result was written with substantial AI assistance
+  (Claude, Anthropic), including proof search and drafting of the documentation. It was checked by
+  the Lean kernel and reviewed by HongJin HE.
+
 ## Build
 
 Toolchain pinned in `lean-toolchain`; Mathlib pinned in `lake-manifest.json`.

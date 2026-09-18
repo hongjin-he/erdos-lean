@@ -5,3 +5,4 @@ import ErdosLean.Erdos514.Main
 import ErdosLean.Erdos956.Main
 import ErdosLean.Erdos265.Main
 import ErdosLean.Erdos995.Main
+import ErdosLean.Erdos790.Main

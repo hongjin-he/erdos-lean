@@ -200,3 +200,32 @@
     - https://github.com/hongjin-he/erdos-lean/blob/e2148c5ed966b85ea0445a7e6b81b3b8d05fe15c/ErdosLean/Erdos995/Main.lean
     - https://www.erdosproblems.com/forum/thread/995
   version: "4.35.0-rc2"
+
+- key: ErdosLean.Erdos790
+  jsp: JSP-000649
+  epc: https://www.erdosproblems.com/790
+  theorem: Erdos790.erdos_790
+  file: ErdosLean/Erdos790/Main.lean
+  answer: "l(n) >> n/(log n)^2, so l(n) = n^{1-o(1)}; l(n)/sqrt(n) -> infinity (yes); no c > 0 with l(n) < n^{1-c} (no)"
+  scope: >-
+    Lower bound c n/(log n)^2 <= l(n) (c = 1/1024) and its consequences, plus l(n) <= n.
+    The Choi–Komlós–Szemerédi upper bound l(n) << n/log n is not formalized.
+  catalog_status: Open
+  author:
+    informal:
+      human:
+        - Samuel Korsky
+      AI: GPT Astra (main idea, as credited in the paper)
+    statement: HongJin HE (written from scratch; formal-conjectures has no #790 file)
+    formal:
+      human: HongJin HE
+      github: hongjin-he
+      AI: Claude (Anthropic)
+  publication:
+    - "S. Korsky, Large Sum-Free Subsets of Sets of Integers, preprint, 13 September 2026, Theorem 1"
+  forum: https://www.erdosproblems.com/forum/thread/790/proof-claims
+  first_complete_commit: pending
+  url:
+    - https://github.com/hongjin-he/erdos-lean/blob/main/ErdosLean/Erdos790/Main.lean
+    - https://www.erdosproblems.com/forum/thread/790/proof-claims
+  version: "4.35.0-rc2"

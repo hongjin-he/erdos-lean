@@ -51,3 +51,32 @@
     - https://github.com/hongjin-he/erdos-lean/blob/a48f5d530cc28e50f8580ad17826cb8f89b7d0e3/ErdosLean/Erdos1199/Main.lean
     - https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/ErdosProblems/1199.lean
   version: "4.35.0-rc2"
+
+- key: ErdosLean.Erdos612
+  jsp: JSP-000497
+  epc: https://www.erdosproblems.com/612
+  theorem: Erdos612.erdos_612
+  file: ErdosLean/Erdos612/Main.lean
+  answer: "no"
+  author:
+    informal:
+      human:
+        - Éva Czabarka
+        - Inne Singgih
+        - László A. Székely
+        - Hangdi Chen
+        - Yaojun Chen
+    statement: HongJin HE (written independently; similar in shape to Kenta Kitamura's draft in formal-conjectures#828)
+    formal:
+      human: HongJin HE
+      github: hongjin-he
+      AI: Claude (Anthropic)
+  doi: https://doi.org/10.1016/j.jctb.2021.06.001
+  arxiv:
+    - https://arxiv.org/abs/2009.02611
+    - https://arxiv.org/abs/2609.03346
+  prior_lean: https://github.com/KitaKen1/erdos-612-lean  # odd case r = 3 refuted (uniform reading), 2026-09-08
+  first_complete_commit: pending  # set in the follow-up commit
+  url:
+    - https://github.com/hongjin-he/erdos-lean/blob/main/ErdosLean/Erdos612/Main.lean
+  version: "4.35.0-rc2"

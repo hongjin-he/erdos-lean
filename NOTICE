@@ -19,3 +19,9 @@ statement of Erdős Problem 1199 (FormalConjectures/ErdosProblems/1199.lean, com
   Licensed under the Apache License, Version 2.0 (see LICENSE).
 
 This statement appears, with minor adaptations, in ErdosLean/Erdos1199/Statement.lean.
+
+The statement of Erdős Problem 612 in ErdosLean/Erdos612/Statement.lean was written
+independently for this project. It follows the graphs-on-Fin-n convention of Formal Conjectures
+(https://github.com/google-deepmind/formal-conjectures) and is similar in shape to the draft by
+Kenta Kitamura in formal-conjectures issue #828; no code or data from either source, or from
+KitaKen1/erdos-612-lean, is included.

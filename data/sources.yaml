@@ -290,8 +290,8 @@
   publication:
     - "B. Gordon, A. S. Fraenkel, E. G. Straus, On the determination of sets by the sets of sums of a certain order, Pacific J. Math. 12 (1962), no. 1, 187-196, §4. doi:10.2140/pjm.1962.12.187"
     - "J. L. Selfridge, E. G. Straus, On the determination of numbers by their sums of a fixed order, Pacific J. Math. 8 (1958), no. 4, 847-856. doi:10.2140/pjm.1958.8.847"
-  first_complete_commit: pending
+  first_complete_commit: 131cefff65ca0e0627a1fde75ff62e4f2758b6a9
   url:
-    - https://github.com/hongjin-he/erdos-lean/blob/main/ErdosLean/Erdos494/Main.lean
+    - https://github.com/hongjin-he/erdos-lean/blob/131cefff65ca0e0627a1fde75ff62e4f2758b6a9/ErdosLean/Erdos494/Main.lean
     - https://www.erdosproblems.com/494
   version: "4.35.0-rc2"

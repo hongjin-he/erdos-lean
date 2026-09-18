@@ -362,7 +362,7 @@
     - "P. Valtr, The unit-distance problem for convex sets, Oberwolfach Reports 2 (2005), Report 17/2005, doi:10.4171/OWR/2005/17"
   note: https://www.ulam.ai/research/erdos956.pdf
   forum: https://www.erdosproblems.com/forum/thread/956
-  first_complete_commit: pending
+  first_complete_commit: 0e468505ab4f5c42626a2c533427374dbb79ddd8
   url:
-    - https://github.com/hongjin-he/erdos-lean/blob/main/ErdosLean/Erdos956Upper/Main.lean
+    - https://github.com/hongjin-he/erdos-lean/blob/0e468505ab4f5c42626a2c533427374dbb79ddd8/ErdosLean/Erdos956Upper/Main.lean
   version: "4.35.0-rc2"

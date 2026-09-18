@@ -62,3 +62,19 @@ This project also includes material derived from Formal Conjectures, namely the 
   Licensed under the Apache License, Version 2.0 (see LICENSE).
 
 This definition appears, with minor adaptations, in ErdosLean/Erdos995/Statement.lean.
+
+This project also includes material derived from plby/lean-proofs
+(https://github.com/plby/lean-proofs, commit 8822f7ddef30fadbd92e1c6ab4ed897af356af5e), namely
+second-moment (Paley–Zygmund type) lemmas from
+src/latest/ErdosProblems/Erdos1165/SecondMoment.lean:
+
+  Copyright 2026 The Formal Conjectures Authors.
+  Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+These lemmas appear, with modifications (renamed with the prefix `alt_ml_`, moved into the
+namespace `DuffinSchaeffer`, adapted to the pinned Lean/Mathlib version), in
+ErdosLean/DuffinSchaeffer/Parts/MeasureLower.lean, which retains the original notice. The other
+files in ErdosLean/DuffinSchaeffer/ do not include code from plby/lean-proofs. In particular, they
+do not include code from its Erdős Problem 999 development. The statement
+(ErdosLean/DuffinSchaeffer/Statement.lean) was written from scratch. The mathematics is due to
+D. Koukoulopoulos and J. Maynard (Ann. of Math. 192 (2020), 251–307).

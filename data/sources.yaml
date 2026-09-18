@@ -229,3 +229,35 @@
     - https://github.com/hongjin-he/erdos-lean/blob/afdea20c9e778d75173d8a13cf7e6548157386b6/ErdosLean/Erdos790/Main.lean
     - https://www.erdosproblems.com/forum/thread/790/proof-claims
   version: "4.35.0-rc2"
+
+- key: ErdosLean.DuffinSchaeffer
+  jsp: JSP-000832
+  epc: https://www.erdosproblems.com/999
+  theorem: DuffinSchaeffer.duffin_schaeffer
+  file: ErdosLean/DuffinSchaeffer/Main.lean
+  answer: "yes (for every psi : N -> [0, oo): a.e. alpha has infinitely many reduced solutions of |alpha - a/q| < psi(q)/q iff sum phi(q) psi(q)/q = oo)"
+  scope: >-
+    Real-valued psi >= 0; both directions; strict and non-strict inequality; almost every
+    alpha in R and in [0,1]. Also DuffinSchaeffer.erdos_999 (the f : N -> N wording of
+    erdosproblems.com/999) as a corollary.
+  catalog_status: Solved
+  author:
+    informal:
+      human:
+        - Dimitris Koukoulopoulos
+        - James Maynard
+    statement: HongJin HE (written from scratch; formal-conjectures has no #999 file)
+    formal:
+      human: HongJin HE
+      github: hongjin-he
+      AI: Claude (Anthropic)
+  publication:
+    - "D. Koukoulopoulos and J. Maynard, On the Duffin-Schaeffer conjecture, Ann. of Math. (2) 192 (2020), no. 1, 251-307, Theorem 1"
+  doi: https://doi.org/10.4007/annals.2020.192.1.5
+  arxiv: https://arxiv.org/abs/1907.04593
+  third_party_code: "auxiliary second-moment lemmas in Parts/MeasureLower.lean adapted from plby/lean-proofs ErdosProblems/Erdos1165/SecondMoment.lean (Formal Conjectures Authors, Apache-2.0)"
+  first_complete_commit: pending
+  url:
+    - https://github.com/hongjin-he/erdos-lean/blob/main/ErdosLean/DuffinSchaeffer/Main.lean
+    - https://www.erdosproblems.com/999
+  version: "4.35.0-rc2"

@@ -335,6 +335,67 @@ integers contains a sum-free subset of size at least `k`. Here `B` is sum-free i
   (Claude, Anthropic), including proof search and drafting of the documentation. It was checked by
   the Lean kernel and reviewed by HongJin HE.
 
+## The Duffin–Schaeffer theorem, Erdős Problem #999 (JSP-000832): answer **yes**
+
+This repository also contains a complete Lean 4 / Mathlib formalization of the Duffin–Schaeffer
+theorem of Koukoulopoulos and Maynard, for an arbitrary real accuracy function
+`ψ : ℕ → [0, ∞)`. The main theorems
+
+```lean
+theorem DuffinSchaeffer.duffin_schaeffer : DuffinSchaefferStatement
+theorem DuffinSchaeffer.erdos_999        : Erdos999Statement
+```
+
+are in `ErdosLean/DuffinSchaeffer/Main.lean`. For every `ψ : ℕ → ℝ` with `ψ q ≥ 0` for all `q`,
+`DuffinSchaefferStatement` proves the following four statements:
+
+1. For almost every real `α`, `|α − a/q| < ψ(q)/q` has infinitely many solutions
+   `(a, q) ∈ ℤ × ℕ` with `q ≥ 1` and `gcd(a, q) = 1`, **if and only if**
+   `∑_{q ≥ 1} φ(q) ψ(q) / q = ∞`.
+2. The same equivalence with `≤` in place of `<`. This is inequality (1.7) of Koukoulopoulos–Maynard.
+3. The same equivalence (with `<`) for almost every `α ∈ [0, 1]`, which is the setting of
+   Koukoulopoulos–Maynard, Theorem 1.
+4. If the series converges, then for almost every `α` there are only finitely many solutions,
+   even with `≤`. This is the Borel–Cantelli direction (1.5).
+
+"Almost every" refers to Lebesgue measure on `ℝ`, or to Lebesgue measure restricted to `[0, 1]`
+in item 3. Divergence of the series is written `¬ Summable`, which for nonnegative terms means
+that the series sums to `+∞`. `Erdos999Statement` is the wording of
+[erdosproblems.com/999](https://www.erdosproblems.com/999) with `f : ℕ → ℕ`. It is the special case of
+item 1 for integer-valued `ψ`.
+
+- **Statement.** `ErdosLean/DuffinSchaeffer/Statement.lean` was written from scratch from the
+  catalog entry, from [erdosproblems.com/999](https://www.erdosproblems.com/999) and from
+  Theorem 1 of the paper. Formal Conjectures has no file for #999.
+- **Mathematics.** D. Koukoulopoulos and J. Maynard, *On the Duffin–Schaeffer conjecture*,
+  Ann. of Math. (2) **192** (2020), no. 1, 251–307,
+  [doi:10.4007/annals.2020.192.1.5](https://doi.org/10.4007/annals.2020.192.1.5)
+  ([arXiv:1907.04593](https://arxiv.org/abs/1907.04593)), Theorem 1. The mathematical result is
+  due to Koukoulopoulos and Maynard. The formalization follows their proof: the overlap estimate
+  of Pollington–Vaughan (their Lemma 5.3), the reduction to Proposition 5.4, and the GCD-graph
+  iteration of §§6–14 (Propositions 6.3, 7.1, 8.1–8.3). Gallagher's zero-one law is taken from
+  Mathlib (`AddCircle.addWellApproximable_ae_empty_or_univ`). Where it is convenient, the constants differ
+  from the paper. For example, `t ≥ 10^2000` in place of `t ≥ 300`, and a geometric weight
+  `(20/21)^{|k−ℓ|}` in Lemma 12.1. The Hall–Tenenbaum bound used in Lemma 7.3 is replaced by
+  an elementary estimate. No result of the paper is assumed.
+- **Prior Lean.** [plby/lean-proofs](https://github.com/plby/lean-proofs) contains
+  `ErdosProblems/Erdos999.lean` (formal authors credited there: Codex and GPT-5.6 Sol), which
+  proves the `f : ℕ → ℕ` wording of erdosproblems.com. There every nonzero radius `f(q)/q` is at
+  least `1/q`, and real-valued `ψ` is not covered. The Lean
+  statement of Koukoulopoulos–Maynard's Theorem 1 in
+  [ImperialCollegeLondon/AnnalsChallenge](https://github.com/ImperialCollegeLondon/AnnalsChallenge)
+  and the blueprint [korbonits/duffin-schaeffer-blueprint](https://github.com/korbonits/duffin-schaeffer-blueprint)
+  have no proof. Some auxiliary second-moment lemmas in
+  `ErdosLean/DuffinSchaeffer/Parts/MeasureLower.lean` are adapted from
+  `ErdosProblems/Erdos1165/SecondMoment.lean` in plby/lean-proofs (Copyright 2026 The Formal
+  Conjectures Authors), used under the Apache License 2.0; see `NOTICE`.
+- **Checks.** `#print axioms` for `DuffinSchaeffer.duffin_schaeffer` and
+  `DuffinSchaeffer.erdos_999` reports only `propext`, `Classical.choice` and `Quot.sound`. There
+  is no `sorry`, no custom `axiom` and no `native_decide`.
+- **AI assistance.** The Lean code for this result was written with substantial AI assistance
+  (Claude, Anthropic), including proof search and drafting of the documentation. It was checked by
+  the Lean kernel and reviewed by HongJin HE.
+
 ## Build
 
 Toolchain pinned in `lean-toolchain`; Mathlib pinned in `lake-manifest.json`.

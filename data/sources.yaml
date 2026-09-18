@@ -1,0 +1,53 @@
+# Provenance and attribution for each formalized result in this repository.
+# Format follows plby/lean-proofs data/sources.yaml.
+# The formalization author of every entry is HongJin HE, GitHub account @hongjin-he
+# (https://github.com/hongjin-he), the owner of this repository.
+
+- key: ErdosLean.Erdos996
+  jsp: JSP-000829
+  epc: https://www.erdosproblems.com/996
+  theorem: Erdos996.erdos_996
+  file: ErdosLean/Erdos996/Main.lean
+  answer: "no"
+  author:
+    informal:
+      human:
+        - Boon Suan Ho
+    statement: Formal Conjectures authors
+    formal:
+      human: HongJin HE
+      github: hongjin-he
+      AI: Claude (Anthropic)
+  arxiv: https://arxiv.org/abs/2604.18535
+  first_complete_commit: 7b4acaa3e4f4e47595f771564528d6fe78e1cbf2
+  url:
+    - https://github.com/hongjin-he/erdos-lean/blob/7b4acaa3e4f4e47595f771564528d6fe78e1cbf2/ErdosLean/Erdos996/Main.lean
+    - https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/ErdosProblems/996.lean
+  version: "4.35.0-rc2"
+
+- key: ErdosLean.Erdos1199
+  jsp: JSP-001004
+  epc: https://www.erdosproblems.com/1199
+  theorem: Erdos1199.erdos_1199
+  file: ErdosLean/Erdos1199/Main.lean
+  answer: "yes"
+  author:
+    informal:
+      human:
+        - Wen Huang
+        - Zhengxing Lian
+        - Song Shao
+        - Rongzhong Xiao
+        - Leiye Xu
+        - Shuhao Zhang
+    statement: Formal Conjectures authors
+    formal:
+      human: HongJin HE
+      github: hongjin-he
+      AI: Claude (Anthropic)
+  arxiv: https://arxiv.org/abs/2607.17333
+  first_complete_commit: a48f5d530cc28e50f8580ad17826cb8f89b7d0e3
+  url:
+    - https://github.com/hongjin-he/erdos-lean/blob/a48f5d530cc28e50f8580ad17826cb8f89b7d0e3/ErdosLean/Erdos1199/Main.lean
+    - https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/ErdosProblems/1199.lean
+  version: "4.35.0-rc2"

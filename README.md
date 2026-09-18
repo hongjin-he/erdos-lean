@@ -67,6 +67,8 @@ lake build
 ## Authorship
 
 Formalization by HongJin HE ([@hongjin-he](https://github.com/hongjin-he)), with AI assistance (Claude).
+Per-result provenance (mathematical authors, statement source, formalization author, first complete
+commit) is recorded in [`data/sources.yaml`](data/sources.yaml).
 
 ## License
 

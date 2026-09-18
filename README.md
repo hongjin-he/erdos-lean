@@ -503,6 +503,57 @@ components are also available as `Erdos612All.not_evenConjAt` and `Erdos612All.n
   `Erdos612All.not_oddConjAt` reports only `propext`, `Classical.choice` and `Quot.sound`. There
   is no `sorry`, no custom `axiom`, no `native_decide` and no `decide` in `ErdosLean/Erdos612All`.
 
+## Erdős Problem #956 (JSP-000796), upper bound and complete answer: `h(n) = Θ(n^{4/3})`
+
+`ErdosLean/Erdos956Upper/` proves the Erdős–Pach upper bound `h(n) ≪ n^{4/3}`, so the previously
+conditional statement `h(n) = Θ(n^{4/3})` (see the #956 section above) now holds unconditionally.
+It reuses the definitions of `ErdosLean/Erdos956/Statement.lean` (`E`, `setDist`, `translate`,
+`Admissible`, `unitPairs`, `h`) unchanged, and the lower bound of `ErdosLean/Erdos956/Main.lean`.
+The main theorems
+
+```lean
+theorem Erdos956.erdos956_upper           : ErdosPachUpperBound
+theorem Erdos956.erdos956_upperEventually : Erdos956UpperEventually
+theorem Erdos956.erdos956_theta           : Erdos956Theta
+theorem Erdos956.erdos956_fullAnswer      : Erdos956FullAnswer
+```
+
+in `ErdosLean/Erdos956Upper/Main.lean` state that `h(n) ≤ 36 n^{4/3}` for every `n`
+(`ErdosPachUpperBound`, the statement already written in `ErdosLean/Erdos956/Statement.lean`),
+that `h(n) = Θ(n^{4/3})` along `atTop` (`Erdos956Theta`), and, bundled in `Erdos956FullAnswer`,
+the question as posed (`∃ c > 0, h(n) > n^{1+c}` eventually), the lower bound `h(n) ≫ n^{4/3}`,
+every exponent `c < 1/3`, the upper bound and the `Θ` statement. The underlying geometric result is
+`Erdos956Upper.unitPairs_card_le_rpow`: every admissible configuration of `n` pairwise disjoint
+translates of a nonempty compact convex set has at most `36 n^{4/3}` pairs at set-distance `1`.
+
+- **Statement.** `ErdosLean/Erdos956Upper/Statement.lean` only adds three `Prop`s
+  (`Erdos956UpperEventually`, `Erdos956Theta`, `Erdos956FullAnswer`) on top of the existing
+  statement file. `Erdos956Theta` is Mathlib's `=Θ[atTop]` between `n ↦ (h n : ℝ)` and
+  `n ↦ (n : ℝ) ^ (4/3 : ℝ)`.
+- **Route.** With `D = C - C`, the translates `C + x`, `C + y` are disjoint iff `y - x ∉ D`, and
+  `δ(C + x, C + y) = dist(y - x, D)`. Unit pairs are split into pairs whose difference lies on the
+  vertical sides of the unit body `K = {v | dist(v, D) ≤ 1}` (at most `2n`) and pairs on the open
+  upper arc of `∂K`, the graph of a concave function. The upper pairs are drawn as x-monotone arcs
+  (translates of that concave graph), two such translates cross at most once, and the crossing
+  lemma turns this into `e ≪ n^{4/3}`. Mathlib has no planar graphs or Jordan curve theorem, so the
+  planar bound `e ≤ 4v` for non-crossing x-monotone drawings is proved by a combinatorial sweep
+  (`Parts/PlanarBound.lean`) instead of Euler's formula, and the crossing lemma
+  (`Parts/CrossingLemma.lean`) is derived from it by the usual random-subset (here: binomial
+  averaging) argument.
+- **Mathematics.** The upper bound is due to P. Erdős and J. Pach, *Variations on the theme of
+  repeated distances*, Combinatorica 10 (1990), 261–269
+  ([doi:10.1007/BF02122780](https://doi.org/10.1007/BF02122780)). The formal proof follows the
+  standard crossing-lemma argument (Ajtai–Chvátal–Newborn–Szemerédi, Leighton; Székely's method)
+  and was not transcribed from the original paper. The lower bound is due to P. Valtr (Oberwolfach
+  Reports 2 (2005), Report 17/2005), see the #956 section above.
+- **Checks.** `#print axioms` for `Erdos956.erdos956_fullAnswer`, `Erdos956.erdos956_theta`,
+  `Erdos956.erdos956_upper` and `Erdos956.erdos956_upperEventually` reports only `propext`,
+  `Classical.choice` and `Quot.sound`. There is no `sorry`, no custom `axiom` and no
+  `native_decide`. No published theorem is taken as a hypothesis.
+- **AI assistance.** The Lean code for this result was written with substantial AI assistance
+  (Claude, Anthropic), including proof search and drafting of the documentation. It was checked by
+  the Lean kernel and reviewed by HongJin HE.
+
 ## Build
 
 Toolchain pinned in `lean-toolchain`; Mathlib pinned in `lake-manifest.json`.

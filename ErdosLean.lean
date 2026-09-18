@@ -9,3 +9,4 @@ import ErdosLean.Erdos790.Main
 import ErdosLean.DuffinSchaeffer.Main
 import ErdosLean.Erdos494.Main
 import ErdosLean.Erdos612All.Main
+import ErdosLean.Erdos956Upper.Main

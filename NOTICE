@@ -87,3 +87,8 @@ These appear verbatim in ErdosLean/Erdos494/Statement.lean (the three statements
 `GFSStatement` and `Erdos494Full`). The proofs in ErdosLean/Erdos494 are an independent
 formalization; no code from Formal Conjectures, from forks of it, or from other Lean developments
 of Erdős Problem #494 is included.
+
+The Erdős Problem 956 upper-bound files (ErdosLean/Erdos956Upper/) do not include material from
+third-party code. They reuse the statement file ErdosLean/Erdos956/Statement.lean of this
+repository. The proof follows the published argument of P. Erdős and J. Pach (Combinatorica 10
+(1990), 261-269) via the crossing lemma.

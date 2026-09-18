@@ -33,7 +33,10 @@ jobs:
           #print axioms Erdos612All.erdos_612_all
           #print axioms Erdos612All.not_evenConjAt
           #print axioms Erdos612All.not_oddConjAt
+          #print axioms Erdos956.erdos956_fullAnswer
+          #print axioms Erdos956.erdos956_theta
+          #print axioms Erdos956.erdos956_upper
           LEAN
           lake env lean axioms_check.lean | tee axioms.txt
-          test "$(grep -c "depends on axioms: \[propext, Classical.choice, Quot.sound\]" axioms.txt)" -eq 20
+          test "$(grep -c "depends on axioms: \[propext, Classical.choice, Quot.sound\]" axioms.txt)" -eq 23
           ! grep -q sorryAx axioms.txt

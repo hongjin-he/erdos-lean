@@ -325,3 +325,44 @@
   url:
     - https://github.com/hongjin-he/erdos-lean/blob/f80d1ce518e844147660e4b962355a236dba8fbf/ErdosLean/Erdos612All/Main.lean
   version: "4.35.0-rc2"
+
+- key: ErdosLean.Erdos956Upper
+  jsp: JSP-000796
+  epc: https://www.erdosproblems.com/956
+  theorem: Erdos956.erdos956_fullAnswer
+  theorems:
+    - Erdos956.erdos956_fullAnswer
+    - Erdos956.erdos956_theta
+    - Erdos956.erdos956_upper
+    - Erdos956.erdos956_upperEventually
+  file: ErdosLean/Erdos956Upper/Main.lean
+  answer: "h(n) = Θ(n^{4/3}); in particular yes: h(n) > n^{1+c} for every c < 1/3 and all large n"
+  scope: >-
+    Complete: the Erdős–Pach upper bound h(n) <= 36 n^{4/3} for every n is proved (not assumed),
+    and combined with the lower bound of ErdosLean/Erdos956 into h(n) = Θ(n^{4/3})
+    (Erdos956FullAnswer bundles the question as posed, the lower bound, every exponent c < 1/3,
+    the upper bound and the Θ statement).
+  author:
+    informal:
+      upper_bound:
+        human:
+          - Paul Erdős
+          - János Pach
+      lower_bound:
+        human:
+          - Pavel Valtr
+        AI: GPT-5.5 Pro (self-contained note adapting Valtr's construction; posted by Przemek Chojecki)
+    statement: HongJin HE (reuses ErdosLean/Erdos956/Statement.lean)
+    formal:
+      human: HongJin HE
+      github: hongjin-he
+      AI: Claude (Anthropic)
+  publication:
+    - "P. Erdős and J. Pach, Variations on the theme of repeated distances, Combinatorica 10 (1990), 261-269, doi:10.1007/BF02122780"
+    - "P. Valtr, The unit-distance problem for convex sets, Oberwolfach Reports 2 (2005), Report 17/2005, doi:10.4171/OWR/2005/17"
+  note: https://www.ulam.ai/research/erdos956.pdf
+  forum: https://www.erdosproblems.com/forum/thread/956
+  first_complete_commit: pending
+  url:
+    - https://github.com/hongjin-he/erdos-lean/blob/main/ErdosLean/Erdos956Upper/Main.lean
+  version: "4.35.0-rc2"

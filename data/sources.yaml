@@ -224,8 +224,8 @@
   publication:
     - "S. Korsky, Large Sum-Free Subsets of Sets of Integers, preprint, 13 September 2026, Theorem 1"
   forum: https://www.erdosproblems.com/forum/thread/790/proof-claims
-  first_complete_commit: pending
+  first_complete_commit: afdea20c9e778d75173d8a13cf7e6548157386b6
   url:
-    - https://github.com/hongjin-he/erdos-lean/blob/main/ErdosLean/Erdos790/Main.lean
+    - https://github.com/hongjin-he/erdos-lean/blob/afdea20c9e778d75173d8a13cf7e6548157386b6/ErdosLean/Erdos790/Main.lean
     - https://www.erdosproblems.com/forum/thread/790/proof-claims
   version: "4.35.0-rc2"
